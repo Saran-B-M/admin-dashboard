@@ -1,20 +1,61 @@
+/******************************imports*****************************************/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/********************************tags******************************************/
 body{
+    margin: 0;
+    padding: 0;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 6fr;
-    gap: 50px;
+
+    font-family: 'Roboto', sans-serif; 
+}
+
+h1 {
+    font-size: 2rem;
+
+    display: flex;
+    align-items: center;
+}
+
+h1 > img{
+    height: 3rem;
+    width: 3rem;
+    margin-right: 10px;
 }
 
 li {
     list-style: none;
 }
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/**********************************class***************************************/
+
+img.prof2{
+    width:50px;
+    height: 50px;
+    border-radius: 100%;
+    float: left;
+    
+}
+
+img.prof1{
+    width:100px;
+    height: 100px;
+    border-radius: 100%;
+}
 
 header {
+    padding: 0px 50px 20px;
     grid-column: 2/-1;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: repeat(2,1fr);
     grid-template-areas: "search info"
                           "user functions";
@@ -28,10 +69,27 @@ header {
     align-content: center;
 
 }
+
+.searchbar input {
+    border-radius: 20px;
+    height: 36px;
+
+    background-color: #f9dfdf;
+    border: none;
+}
+
+.searchbar img {
+    
+
+    height: 36px;
+    width: 36px;
+}
+
+
 .info {
     grid-area: info;
-    align-self: center;
-    margin-right: 100px;
+    align-self: flex-end;
+    
 
     display: grid;
     justify-content: end;
@@ -40,35 +98,66 @@ header {
 .info > ul {
     display: grid;
     grid-template-columns:repeat(3, auto);
+    align-items: center;
     gap: 20px;
 }
 .user {
     grid-area: user;
 
-    display: grid;
-    grid-template-columns: repeat(2, auto);
+    display: flex;
+    gap: 20px;
 }
 .functions {
     grid-area: functions;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
     
 }
 
-.functions > ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
+.functions button {
+    color: white;
+    font-size: 1.2rem;
+    background-color:#f87171;
+    border: none;
+    border-radius: 20px;
+    height: 36px;
+
 }
 
 .sidebar {
+    padding: 20px 0px 0px 30px;
+    color: white;
     grid-row: 1/-1;
-
+    background-color: #f87171;
     display: grid;
-    grid-template-rows: 1fr repeat(2,3fr);
+    grid-template-rows: 1fr repeat(2,4fr);
+}
+
+.sidebar ul li{
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 36px;     
+}
+
+.sidebar p {
+    color: white;
+}
+.sidebar ul img {
+    color: white;
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 10px;
 }
 
 .content {
+    padding: 50px;
     grid-row: 2/-1;
     grid-column: 2/-1;
+    background-color: #fef2f2;
 
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -81,15 +170,33 @@ header {
     grid-column: 1/2;
 }
 
-.project-functions {
-    display:flex;
-    justify-content: end;
+.projects .card {
+    display: grid;
 }
 
-.cards {
+.project-functions {
+    align-self: flex-end;
+    justify-self: flex-end;
+    display:grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: end;
+    align-content: flex-end;
+    gap: 20px;
+}
+
+.projects .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 50px;
+
+    
+}
+
+.projects .card {
+    box-shadow: 2px 2px 5px grey;
+    border-radius: 10px;
+    padding: 20px;
+    border-left: 10px solid #f87171;
 }
 
 .announcements{
@@ -97,8 +204,41 @@ header {
     grid-column: 2/-1;
 }
 
+.announcements > div {
+    box-shadow: 2px 2px 5px grey;
+    border-radius: 10px;
+    padding: 36px;
+}
+
+.announcement{
+    border-bottom: 1px solid grey;
+}
+
+.announcements div:last-child {
+    border-bottom: none;
+}
+
 .trending {
     grid-row: 2/-1;
     grid-column: 2/-1;
+    
+   
 }
 
+.trending > .cards {
+    box-shadow: 2px 2px 5px grey;
+    border-radius: 10px;
+    padding: 20px;
+    
+}
+
+.trending .card{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 36px
+}
+
+.content p {
+    color: grey;
+}
